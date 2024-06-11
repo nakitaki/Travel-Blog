@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md-6 offset-3">
         <p>
-            <h4>Sign up for a new account</h4>
+            <h4>Регистрирай се</h4>
         </p>
 
         @if (TempData["Error"] != null)
@@ -19,29 +19,29 @@
         }
 
         <div class="row">
-            <div class="col-md-8 offset-2">
+            <div >
                 <form asp-action="Register">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="form-group">
-                        <label asp-for="EmailAddress" class="control-label"></label>
+                        <label asp-for="EmailAddress" class="control-label">Имейл Адрес</label>
                         <input asp-for="EmailAddress" class="form-control" />
                         <span asp-validation-for="EmailAddress" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Password" class="control-label"></label>
+                        <label asp-for="Password" class="control-label">Парола</label>
                         <input asp-for="Password" class="form-control" />
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="ConfirmPassword" class="control-label"></label>
+                        <label asp-for="ConfirmPassword" class="control-label">Потвърди паролата</label>
                         <input asp-for="ConfirmPassword" class="form-control" />
                         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                     </div>
 
-                    <div class="form-group">
-                        <input class="btn btn-outline-success float-right" type="submit" value="Sign up" />
-                        <a class="btn btn-outline-secondary" asp-controller="Adventure" asp-action="Index">Cancel</a>
+                    <div class="form-group m-2">
+                        <input class="btn btn-outline-success float-right" type="submit" value="Напред" />
+                        <a class="btn btn-outline-secondary" asp-controller="Adventure" asp-action="Index">Отказ</a>
                     </div>
                 </form>
             </div>

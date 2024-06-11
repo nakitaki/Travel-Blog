@@ -2,16 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">My blog</h1>
-        <p class="lead text-muted">
-            Welcome to my travel blog! Here you will find stories, tips, and inspirations from my adventures around the world. Whether you're looking for ideas for your next destination or just want to immerse yourself in tales of distant places, this blog is for you. Happy reading and happy travels!
-        </p>
-        <p>
-            <a asp-controller="Holiday" asp-action="Index"  class="btn btn-sm btn-primary">Holiday</a>
-            <a asp-controller="Adventure" asp-action="Index"  class="btn btn-sm btn-primary">Adventure</a>
-        </p>
-    </div>
-</section>
+<div class="container m-5 text-center mx-auto">
+    <h1 class="jumbotron-heading">Приключения под открито небе</h1>
+    <p class="lead text-muted m-5">
+        Добре дошли в моя блог за пътувания! Тук ще намерите истории, съвети и вдъхновения от моите приключения по света. Независимо дали търсите идеи за следващата си дестинация или просто искате да се потопите в разкази за далечни места, този блог е за вас. Приятно четене и щастливо пътуване!
+    </p>
 
+    <a asp-controller="Holiday" asp-action="Index" class="btn btn-sm btn-success p-2">Почивки</a>
+    <a asp-controller="Adventure" asp-action="Index" class="btn btn-sm btn-success p-2">Приключения</a>
+</div>

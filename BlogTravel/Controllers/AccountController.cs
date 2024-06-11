@@ -83,14 +83,14 @@ namespace BlogTravel.Controllers
                 await _userManager.AddToRoleAsync(newUser, UserRoles.User);
             }
 
-            return RedirectToAction("Index", "Adventure");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Adventure");
+            return RedirectToAction("Index", "Home");
         }
 
         
