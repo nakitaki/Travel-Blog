@@ -14,11 +14,13 @@ namespace BlogTravel.Controllers
 
         private readonly IAdventureRepository _adventureRepository;
         private readonly IPhotoService _photoService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AdventureController(IAdventureRepository adventureRepository, IPhotoService photoService)
+        public AdventureController(IAdventureRepository adventureRepository, IPhotoService photoService, IHttpContextAccessor httpContextAccessor)
         {
-           _adventureRepository = adventureRepository;
-           _photoService = photoService;
+            _adventureRepository = adventureRepository;
+            _photoService = photoService;
+            _httpContextAccessor = httpContextAccessor;
         }
         public async Task<IActionResult> Index()
         {
@@ -34,7 +36,12 @@ namespace BlogTravel.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var curUserId = _httpContextAccessor.HttpContext?.User.GetUserId();
+            var createdAdventureViewModel = new CreateAdventureViewModel
+            {
+                AppUserId = curUserId
+            };
+            return View(createdAdventureViewModel);
         }
 
         [HttpPost]
@@ -48,6 +55,7 @@ namespace BlogTravel.Controllers
                     Title = adventureVM.Title,
                     Description = adventureVM.Description,
                     Image = result.Url.ToString(),
+                    AppUserId = adventureVM.AppUserId,
                     Address = new Address
                     {
                         City = adventureVM.Address.City,
@@ -125,6 +133,24 @@ namespace BlogTravel.Controllers
                 return View(adventureVM);
             }
 
+        }
+
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var adventureDetails = await _adventureRepository.GetByIdAsync(id);
+            if (adventureDetails == null) return View("Error");
+            return View(adventureDetails);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteAdventure(int id)
+        {
+            var adventureDetails = await _adventureRepository.GetByIdAsync(id);
+            if (adventureDetails == null) return View("Error");
+
+            _adventureRepository.Delete(adventureDetails);
+            return RedirectToAction("Index");
         }
     }
 }

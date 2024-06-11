@@ -21,7 +21,7 @@ namespace BlogTravel.Models
         public HolidayCategory HolidayCategory { get; set; }
 
         [ForeignKey("AppUser")]
-        public string? AppUserID { get; set; }
+        public string? AppUserId { get; set; }
 
         public AppUser? AppUser { get; set; }
 

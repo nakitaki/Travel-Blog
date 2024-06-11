@@ -3,6 +3,7 @@ using BlogTravel.Interfaces;
 using BlogTravel.Models;
 using BlogTravel.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BlogTravel.Controllers
 {
@@ -10,11 +11,13 @@ namespace BlogTravel.Controllers
     {
         private readonly IHolidayRepository _holidayRepository;
         private readonly IPhotoService _photoService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public HolidayController(IHolidayRepository holidayRepository, IPhotoService photoService)
+        public HolidayController(IHolidayRepository holidayRepository, IPhotoService photoService, IHttpContextAccessor httpContextAccessor)
         {
             _holidayRepository = holidayRepository;
             _photoService = photoService;
+            _httpContextAccessor = httpContextAccessor;
         }
         public async Task<IActionResult> Index()
         {
@@ -30,7 +33,9 @@ namespace BlogTravel.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var curUserId = _httpContextAccessor.HttpContext.User.GetUserId();
+            var createdHolidayViewModel = new CreateHolidayViewModel { AppUserId = curUserId };
+            return View(createdHolidayViewModel);
         }
 
         [HttpPost]
@@ -44,6 +49,7 @@ namespace BlogTravel.Controllers
                     Title = holidayVM.Title,
                     Description = holidayVM.Description,
                     Image = result.Url.ToString(),
+                    AppUserId = holidayVM.AppUserId,
                     Address = new Address
                     {
                         City = holidayVM.Address.City,
@@ -120,7 +126,24 @@ namespace BlogTravel.Controllers
             {
                 return View(holidayVM);
             }
-            
+
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var holidayDetails = await _holidayRepository.GetByIdAsync(id);
+            if (holidayDetails == null) return View("Error");
+            return View(holidayDetails);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteHoliday(int id)
+        {
+            var holidayDetails = await _holidayRepository.GetByIdAsync(id);
+            if (holidayDetails == null) return View("Error");
+
+            _holidayRepository.Delete(holidayDetails);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -10,5 +10,7 @@ namespace BlogTravel.ViewModels
         public Address Address { get; set; }
         public IFormFile Image { get; set; }
         public AdventureCategory AdventureCategory { get; set; }
+
+        public string AppUserId { get; set; }
     }
 }
