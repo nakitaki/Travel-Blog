@@ -13,52 +13,52 @@
 
                     context.Database.EnsureCreated();
 
-                    if (!context.Clubs.Any())
+                    if (!context.Holidays.Any())
                     {
-                        context.Clubs.AddRange(new List<Club>()
+                        context.Holidays.AddRange(new List<Holiday>()
                     {
-                        new Club()
+                        new Holiday()
                         {
-                            Title = "Running Club 1",
+                            Title = "Running Holiday 1",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
                             Description = "This is the description of the first cinema",
-                            ClubCategory = ClubCategory.City,
+                            HolidayCategory = HolidayCategory.Africa,
                             Address = new Address()
                             {
                                 Street = "123 Main St",
                                 City = "Charlotte"
                             }
                          },
-                        new Club()
+                        new Holiday()
                         {
-                            Title = "Running Club 2",
+                            Title = "Running Holiday 2",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
                             Description = "This is the description of the first cinema",
-                            ClubCategory = ClubCategory.Endurance,
+                            HolidayCategory = HolidayCategory.Europe,
                             Address = new Address()
                             {
                                 Street = "123 Main St",
                                 City = "Charlotte"
                             }
                         },
-                        new Club()
+                        new Holiday()
                         {
-                            Title = "Running Club 3",
+                            Title = "Running Holiday 3",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                            Description = "This is the description of the first club",
-                            ClubCategory = ClubCategory.Trail,
+                            Description = "This is the description of the first holiday",
+                            HolidayCategory = HolidayCategory.Europe,
                             Address = new Address()
                             {
                                 Street = "123 Main St",
                                 City = "Charlotte"
                             }
                         },
-                        new Club()
+                        new Holiday()
                         {
-                            Title = "Running Club 3",
+                            Title = "Running Holiday 3",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                            Description = "This is the description of the first club",
-                            ClubCategory = ClubCategory.City,
+                            Description = "This is the description of the first holiday",
+                            HolidayCategory = HolidayCategory.Europe,
                             Address = new Address()
                             {
                                 Street = "123 Main St",
@@ -68,29 +68,29 @@
                     });
                         context.SaveChanges();
                     }
-                    //Races
-                    if (!context.Races.Any())
+                    //Adventures
+                    if (!context.Adventures.Any())
                     {
-                        context.Races.AddRange(new List<Race>()
+                        context.Adventures.AddRange(new List<Adventure>()
                     {
-                        new Race()
+                        new Adventure()
                         {
-                            Title = "Running Race 1",
+                            Title = "Running Adventure 1",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                            Description = "This is the description of the first race",
-                            RaceCategory = RaceCategory.Marathon,
+                            Description = "This is the description of the first adventure",
+                            AdventureCategory = AdventureCategory.Africa,
                             Address = new Address()
                             {
                                 Street = "123 Main St",
                                 City = "Charlotte"
                             }
                         },
-                        new Race()
+                        new Adventure()
                         {
-                            Title = "Running Race 2",
+                            Title = "Running Adventure 2",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                            Description = "This is the description of the first race",
-                            RaceCategory = RaceCategory.Ultra,
+                            Description = "This is the description of the first adventure",
+                            AdventureCategory = AdventureCategory.America,
                             AddressId = 5,
                             Address = new Address()
                             {

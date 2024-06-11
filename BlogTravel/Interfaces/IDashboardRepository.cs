@@ -4,8 +4,8 @@ namespace BlogTravel.Interfaces
 {
     public interface IDashboardRepository
     {
-        Task<List<Race>> GetAllUserRaces();
-        Task<List<Club>> GetAllUserClubs();
+        Task<List<Adventure>> GetAllUserAdventures();
+        Task<List<Holiday>> GetAllUserHolidays();
 
     }
 }

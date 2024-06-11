@@ -15,12 +15,12 @@ namespace BlogTravel.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var userRaces = await _dashboardRepository.GetAllUserRaces();
-            var userClubs = await _dashboardRepository.GetAllUserClubs();
+            var userAdventures = await _dashboardRepository.GetAllUserAdventures();
+            var userHolidays = await _dashboardRepository.GetAllUserHolidays();
             var dashboardViewModel = new DashboardViewModel()
             {
-                Races = userRaces,
-                Clubs = userClubs
+                Adventures = userAdventures,
+                Holidays = userHolidays
             };
             return View(dashboardViewModel);
         }

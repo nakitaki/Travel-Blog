@@ -57,7 +57,7 @@ namespace BlogTravel.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Clubs",
+                name: "Holidays",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -66,27 +66,27 @@ namespace BlogTravel.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AddressId = table.Column<int>(type: "int", nullable: false),
-                    ClubCategory = table.Column<int>(type: "int", nullable: false),
+                    HolidayCategory = table.Column<int>(type: "int", nullable: false),
                     AppUserID = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clubs", x => x.Id);
+                    table.PrimaryKey("PK_Holidays", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Clubs_Addresses_AddressId",
+                        name: "FK_Holidays_Addresses_AddressId",
                         column: x => x.AddressId,
                         principalTable: "Addresses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Clubs_AppUser_AppUserID",
+                        name: "FK_Holidays_AppUser_AppUserID",
                         column: x => x.AppUserID,
                         principalTable: "AppUser",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Races",
+                name: "Adventures",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -95,20 +95,20 @@ namespace BlogTravel.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AddressId = table.Column<int>(type: "int", nullable: false),
-                    RaceCategory = table.Column<int>(type: "int", nullable: false),
+                    AdventureCategory = table.Column<int>(type: "int", nullable: false),
                     AppUserID = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Races", x => x.Id);
+                    table.PrimaryKey("PK_Adventures", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Races_Addresses_AddressId",
+                        name: "FK_Adventures_Addresses_AddressId",
                         column: x => x.AddressId,
                         principalTable: "Addresses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Races_AppUser_AppUserID",
+                        name: "FK_Adventures_AppUser_AppUserID",
                         column: x => x.AppUserID,
                         principalTable: "AppUser",
                         principalColumn: "Id");
@@ -120,33 +120,33 @@ namespace BlogTravel.Migrations
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clubs_AddressId",
-                table: "Clubs",
+                name: "IX_Holidays_AddressId",
+                table: "Holidays",
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clubs_AppUserID",
-                table: "Clubs",
+                name: "IX_Holidays_AppUserID",
+                table: "Holidays",
                 column: "AppUserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Races_AddressId",
-                table: "Races",
+                name: "IX_Adventures_AddressId",
+                table: "Adventures",
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Races_AppUserID",
-                table: "Races",
+                name: "IX_Adventures_AppUserID",
+                table: "Adventures",
                 column: "AppUserID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Clubs");
+                name: "Holidays");
 
             migrationBuilder.DropTable(
-                name: "Races");
+                name: "Adventures");
 
             migrationBuilder.DropTable(
                 name: "AppUser");

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlogTravel.Models
 {
-    public class Club
+    public class Holiday
     {
         public int Id { get; set; }
 
@@ -18,7 +18,7 @@ namespace BlogTravel.Models
 
         public Address Address { get; set; }
 
-        public ClubCategory ClubCategory { get; set; }
+        public HolidayCategory HolidayCategory { get; set; }
 
         [ForeignKey("AppUser")]
         public string? AppUserID { get; set; }

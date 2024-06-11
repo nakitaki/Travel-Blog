@@ -14,18 +14,18 @@ namespace BlogTravel.Repository
             _context = context;
             _httpContextAccessor = httpContextAccessor;
         }
-        public async Task<List<Club>> GetAllUserClubs()
+        public async Task<List<Holiday>> GetAllUserHolidays()
         {
             var curUser = _httpContextAccessor.HttpContext?.User;
-            var userClubs = _context.Clubs.Where(r => r.AppUser.Id == curUser.ToString());
-            return userClubs.ToList();
+            var userHolidays = _context.Holidays.Where(r => r.AppUser.Id == curUser.ToString());
+            return userHolidays.ToList();
         }
 
-        public async Task<List<Race>> GetAllUserRaces()
+        public async Task<List<Adventure>> GetAllUserAdventures()
         {
             var curUser = _httpContextAccessor.HttpContext?.User;
-            var userRaces = _context.Races.Where(r => r.AppUser.Id == curUser.ToString());
-            return userRaces.ToList();
+            var userAdventures = _context.Adventures.Where(r => r.AppUser.Id == curUser.ToString());
+            return userAdventures.ToList();
         }
     }
 }

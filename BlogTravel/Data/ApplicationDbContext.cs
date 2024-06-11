@@ -11,8 +11,8 @@ namespace BlogTravel.Data
 
         }
 
-        public DbSet<Race> Races { get; set; }
-        public DbSet<Club> Clubs { get; set; }
+        public DbSet<Adventure> Adventures { get; set; }
+        public DbSet<Holiday> Holidays { get; set; }
         public DbSet<Address> Addresses { get; set; }
 
     }

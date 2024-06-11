@@ -4,7 +4,7 @@ namespace BlogTravel.ViewModels
 {
     public class DashboardViewModel
     {
-        public List<Race> Races { get; set; }
-        public List<Club> Clubs { get; set; }
+        public List<Adventure> Adventures { get; set; }
+        public List<Holiday> Holidays { get; set; }
     }
 }

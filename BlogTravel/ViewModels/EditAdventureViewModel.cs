@@ -2,7 +2,7 @@
 
 namespace BlogTravel.ViewModels
 {
-    public class EditRaceViewModel 
+    public class EditAdventureViewModel 
     { 
         public int Id { get; set; }
         public string Title { get; set; }
@@ -11,6 +11,6 @@ namespace BlogTravel.ViewModels
         public string? URL { get; set; }
         public int AddressId { get; set; }
         public Address Address { get; set; }
-        public RaceCategory RaceCategory { get; set; }
+        public AdventureCategory AdventureCategory { get; set; }
     }
 }

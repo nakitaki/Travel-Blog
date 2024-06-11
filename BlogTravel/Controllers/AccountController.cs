@@ -41,7 +41,7 @@ namespace BlogTravel.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Race");
+                        return RedirectToAction("Index", "Adventure");
                     }
                 }
                 //Password is incorrect
@@ -83,14 +83,14 @@ namespace BlogTravel.Controllers
                 await _userManager.AddToRoleAsync(newUser, UserRoles.User);
             }
 
-            return RedirectToAction("Index", "Race");
+            return RedirectToAction("Index", "Adventure");
         }
 
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Race");
+            return RedirectToAction("Index", "Adventure");
         }
 
         

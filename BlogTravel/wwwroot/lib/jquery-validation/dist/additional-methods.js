@@ -522,7 +522,7 @@ $.validator.addMethod( "creditcard", function( value, element ) {
 
 /* NOTICE: Modified version of Castle.Components.Validator.CreditCardValidator
  * Redistributed under the Apache License 2.0 at http://www.apache.org/licenses/LICENSE-2.0
- * Valid Types: mastercard, visa, amex, dinersclub, enroute, discover, jcb, unknown, all (overrides all other settings)
+ * Valid Types: mastercard, visa, amex, dinersholiday, enroute, discover, jcb, unknown, all (overrides all other settings)
  */
 $.validator.addMethod( "creditcardtypes", function( value, element, param ) {
 	if ( /[^0-9\-]+/.test( value ) ) {
@@ -542,7 +542,7 @@ $.validator.addMethod( "creditcardtypes", function( value, element, param ) {
 	if ( param.amex ) {
 		validTypes |= 0x0004;
 	}
-	if ( param.dinersclub ) {
+	if ( param.dinersholiday ) {
 		validTypes |= 0x0008;
 	}
 	if ( param.enroute ) {
@@ -569,7 +569,7 @@ $.validator.addMethod( "creditcardtypes", function( value, element, param ) {
 	if ( validTypes & 0x0004 && /^(3[47])/.test( value ) ) { // Amex
 		return value.length === 15;
 	}
-	if ( validTypes & 0x0008 && /^(3(0[012345]|[68]))/.test( value ) ) { // Dinersclub
+	if ( validTypes & 0x0008 && /^(3(0[012345]|[68]))/.test( value ) ) { // Dinersholiday
 		return value.length === 14;
 	}
 	if ( validTypes & 0x0010 && /^(2(014|149))/.test( value ) ) { // Enroute

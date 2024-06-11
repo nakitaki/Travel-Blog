@@ -3,7 +3,7 @@
 /// <summary>
 /// Summary description for Class1
 /// </summary>
-public enum RaceCategory
+public enum HolidayCategory
 {
-    Marathon, Ultra, FiveK, TenK, HalfMarathon
+    Europe, Africa, America, Azia, Australia
 }

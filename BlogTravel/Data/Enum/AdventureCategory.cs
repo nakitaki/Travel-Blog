@@ -3,7 +3,7 @@
 /// <summary>
 /// Summary description for Class1
 /// </summary>
-public enum ClubCategory
+public enum AdventureCategory
 {
-    RoadRunner, Womens, City, Trail, Endurance
+    Europe, Africa, America, Azia, Australia
 }

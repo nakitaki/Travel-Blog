@@ -121,7 +121,7 @@ namespace BlogTravel.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("BlogTravel.Models.Club", b =>
+            modelBuilder.Entity("BlogTravel.Models.Holiday", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -135,7 +135,7 @@ namespace BlogTravel.Migrations
                     b.Property<string>("AppUserID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ClubCategory")
+                    b.Property<int>("HolidayCategory")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -156,10 +156,10 @@ namespace BlogTravel.Migrations
 
                     b.HasIndex("AppUserID");
 
-                    b.ToTable("Clubs");
+                    b.ToTable("Holidays");
                 });
 
-            modelBuilder.Entity("BlogTravel.Models.Race", b =>
+            modelBuilder.Entity("BlogTravel.Models.Adventure", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -181,7 +181,7 @@ namespace BlogTravel.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RaceCategory")
+                    b.Property<int>("AdventureCategory")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -194,7 +194,7 @@ namespace BlogTravel.Migrations
 
                     b.HasIndex("AppUserID");
 
-                    b.ToTable("Races");
+                    b.ToTable("Adventures");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -341,7 +341,7 @@ namespace BlogTravel.Migrations
                     b.Navigation("Address");
                 });
 
-            modelBuilder.Entity("BlogTravel.Models.Club", b =>
+            modelBuilder.Entity("BlogTravel.Models.Holiday", b =>
                 {
                     b.HasOne("BlogTravel.Models.Address", "Address")
                         .WithMany()
@@ -350,7 +350,7 @@ namespace BlogTravel.Migrations
                         .IsRequired();
 
                     b.HasOne("BlogTravel.Models.AppUser", "AppUser")
-                        .WithMany("Clubs")
+                        .WithMany("Holidays")
                         .HasForeignKey("AppUserID");
 
                     b.Navigation("Address");
@@ -358,7 +358,7 @@ namespace BlogTravel.Migrations
                     b.Navigation("AppUser");
                 });
 
-            modelBuilder.Entity("BlogTravel.Models.Race", b =>
+            modelBuilder.Entity("BlogTravel.Models.Adventure", b =>
                 {
                     b.HasOne("BlogTravel.Models.Address", "Address")
                         .WithMany()
@@ -367,7 +367,7 @@ namespace BlogTravel.Migrations
                         .IsRequired();
 
                     b.HasOne("BlogTravel.Models.AppUser", "AppUser")
-                        .WithMany("Races")
+                        .WithMany("Adventures")
                         .HasForeignKey("AppUserID");
 
                     b.Navigation("Address");
@@ -428,9 +428,9 @@ namespace BlogTravel.Migrations
 
             modelBuilder.Entity("BlogTravel.Models.AppUser", b =>
                 {
-                    b.Navigation("Clubs");
+                    b.Navigation("Holidays");
 
-                    b.Navigation("Races");
+                    b.Navigation("Adventures");
                 });
 #pragma warning restore 612, 618
         }

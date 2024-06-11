@@ -13,12 +13,12 @@ namespace BlogTravel.Migrations
                 table: "AppUser");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Clubs_AppUser_AppUserID",
-                table: "Clubs");
+                name: "FK_Holidays_AppUser_AppUserID",
+                table: "Holidays");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Races_AppUser_AppUserID",
-                table: "Races");
+                name: "FK_Adventures_AppUser_AppUserID",
+                table: "Adventures");
 
             migrationBuilder.DropPrimaryKey(
                 name: "PK_AppUser",
@@ -256,15 +256,15 @@ namespace BlogTravel.Migrations
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Clubs_AspNetUsers_AppUserID",
-                table: "Clubs",
+                name: "FK_Holidays_AspNetUsers_AppUserID",
+                table: "Holidays",
                 column: "AppUserID",
                 principalTable: "AspNetUsers",
                 principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Races_AspNetUsers_AppUserID",
-                table: "Races",
+                name: "FK_Adventures_AspNetUsers_AppUserID",
+                table: "Adventures",
                 column: "AppUserID",
                 principalTable: "AspNetUsers",
                 principalColumn: "Id");
@@ -277,12 +277,12 @@ namespace BlogTravel.Migrations
                 table: "AspNetUsers");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Clubs_AspNetUsers_AppUserID",
-                table: "Clubs");
+                name: "FK_Holidays_AspNetUsers_AppUserID",
+                table: "Holidays");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Races_AspNetUsers_AppUserID",
-                table: "Races");
+                name: "FK_Adventures_AspNetUsers_AppUserID",
+                table: "Adventures");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -384,15 +384,15 @@ namespace BlogTravel.Migrations
                 principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Clubs_AppUser_AppUserID",
-                table: "Clubs",
+                name: "FK_Holidays_AppUser_AppUserID",
+                table: "Holidays",
                 column: "AppUserID",
                 principalTable: "AppUser",
                 principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Races_AppUser_AppUserID",
-                table: "Races",
+                name: "FK_Adventures_AppUser_AppUserID",
+                table: "Adventures",
                 column: "AppUserID",
                 principalTable: "AppUser",
                 principalColumn: "Id");
